@@ -7,7 +7,7 @@ var numberGuesses
 var hiddenWord = []
 var guessedLetters = []
 var guessingWord = []
-var foundLetter = []
+var foundLetter
 var winsCurrent = 0;
 
 
@@ -35,31 +35,11 @@ function startGame() {
         }
         screenUpdate()
     }
-    
-    
 }
 
 // MAIN PROCESS
 
 startGame()
-
-// document.onkeyup = function(letter) {
-
-//     // var userInput = event.key.toLowerCase();
-
-
-
-//     if (!foundLetter) {
-//         if (!guessedLetters.includes(letter)) {
-//             guessedLetters.push(letter)
-//             numberGuesses--
-//         }
-//         if (maxGuesses === 0) {
-//             guessingWord = hiddenWord.split()
-//             screenUpdate()
-//         }
-//     }
-// }
 
 document.onkeyup = function(event) {
 
@@ -72,14 +52,24 @@ function findLetter(letter) {
     for (var i = 0, j = hiddenWord.length; i < j; i++) {
         if (letter === hiddenWord[i]) {
             guessingWord[i] = letter
-
+            foundLetter = true
             if (guessingWord.join("") === guessingWord) {
                 winsCurrent++
- 
+                screenUpdate()
             }
         }
     }
 
+    if (!foundLetter) {
+        if (!guessedLetters.includes(letter)) {
+            guessedLetters.push(letter)
+            numberGuesses--
+        }
+        if (maxGuesses === 0) {
+            guessingWord = hiddenWord.split()
+        }
+    }
 
+    screenUpdate()
 }
 
