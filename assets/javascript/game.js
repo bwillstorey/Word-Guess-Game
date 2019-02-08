@@ -42,8 +42,11 @@ function startGame() {
 startGame()
 
 document.onkeyup = function(event) {
+    var inp = String.fromCharCode(event.keyCode);
+    if (/[a-zA-Z]/.test(inp)) {
+        findLetter(event.key.toLowerCase())
+    }
 
-    findLetter(event.key.toLowerCase())
 
 }
 
