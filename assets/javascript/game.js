@@ -27,8 +27,8 @@ function startGame() {
     guessedLetters = []
     guessingWord = []
 
-    for (var i = 0, j = hiddenWord.length; i < j; i++){
-        if (hiddenWord[i] === " ") {
+    for (var i = 0, j = guessingWord.length; i < j; i++){
+        if (guessingWord[i] === " ") {
             guessingWord.push(" ")
         } else {
             guessingWord.push("-")
