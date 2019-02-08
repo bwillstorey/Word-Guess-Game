@@ -8,19 +8,25 @@
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="javascript/game.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=ZCOOL+KuaiLe" rel="stylesheet">
 </head>
 <body>
-    <img src="assets/images/pblogo.jpg" alt="Point Break Logo">
+    <div class="background"></div>
+    <img class="logo" src="assets/images/pblogo.png" alt="Point Break Logo">
+    <br>
+    <h1>Word Guess Game</h1>
+    <br>
 
-<section>
-    <img class ="keanu" src="assets/images/keanu.jpg" alt="Johnny Utah">
-    <img class ="swayze" src="assets/images/swayze.jpg" alt="Bodhi">
-    <img class ="skydive" src="assets/images/pbskydive.jpg" alt="Skydiving">
-    <img class ="kiedis" src="assets/images/kiedis.jpg" alt="Anthony Kiedis">
-    <img class ="reagan" src="assets/images/reagan.jpg" alt="Reagan Mask">
-</section>
-<aside>
-        <div>
+<table>
+    <tr>
+        <td class="left">
+            <!-- <img class="keanu" src="assets/images/keanu.jpg" alt="Johnny Utah"> -->
+            <!-- <img class="swayze" src="assets/images/swayze.jpg" alt="Bodhi">
+            <img class="skydive" src="assets/images/pbskydive.jpg" alt="Skydiving">
+            <img class="kiedis" src="assets/images/kiedis.jpg" alt="Anthony Kiedis">
+            <img class="reagan" src="assets/images/reagan.jpg" alt="Reagan Mask"> -->
+        </td>
+        <td class="right">
             <h3>Press Any Key to Get Started!</h3>
             <br>
             <h3>Wins</h3>
@@ -36,9 +42,8 @@
             <div id="guesses"></div>
             <h3>Letters Already Guessed</h3>
             <div id="letters"></div>
-        </div>
-
-</aside>
-
+        </td>
+    </tr>
+</table>
 </body>
 </html>
