@@ -4,9 +4,8 @@ var answers = ["brodhi","johnny utah", "skydiving", "reagan mask", "anthony kead
 
 var maxGuesses = 12;
 var numberGuesses
-var hiddenWord = []
-var guessedLetters = []
-var guessingWord = []
+var guessedLetters
+var guessingWord
 var foundLetter
 var winsCurrent = 0;
 
@@ -52,11 +51,11 @@ document.onkeyup = function(event) {
 
 function findLetter(letter) {
 
-    for (var i = 0, j = hiddenWord.length; i < j; i++) {
-        if (letter === hiddenWord[i]) {
+    for (var i = 0, j = answers.length; i < j; i++) {
+        if (letter === guessingWord[i]) {
             guessingWord[i] = letter
             foundLetter = true
-            if (guessingWord.join("") === guessingWord) {
+            if (guessingWord.join("") === answers) {
                 winsCurrent++
                 screenUpdate()
             }
@@ -69,7 +68,7 @@ function findLetter(letter) {
             numberGuesses--
         }
         if (maxGuesses === 0) {
-            guessingWord = hiddenWord.split()
+            guessingWord = answers.split()
         }
     }
 
