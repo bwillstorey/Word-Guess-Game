@@ -28,9 +28,14 @@ h1 {
 
 table {
     border: solid 3px green;
-    width: 50%;
+    width: 70%;
     margin: 0 auto;
     background-color: #f6fbfca7;
+    vertical-align: middle;
+}
+
+tbody, tr, td {
+    vertical-align: middle;
 }
 
 .left {
@@ -39,8 +44,8 @@ table {
 }
 
 img {
-    height: 200px;
-    width: 300px;
+    padding: 20px;
+    max-width: 400px;
 }
 
 .right {
@@ -54,4 +59,5 @@ img {
 
 #keanu, #swayze, #skydive, #kiedis, #reagan {
     display: none;
+    float: left;
 }

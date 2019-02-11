@@ -85,18 +85,18 @@ function updateDisplay () {
 
 function displayPicture () {
     if (wordToMatch === possibleWords[0].toUpperCase()) {
-        document.getElementById("swayze").style.display = "block";
+        document.getElementById("swayze").style.display = "inline";
     }
     else if (wordToMatch === possibleWords[1].toUpperCase()) {
-        document.getElementById("keanu").style.display = "block";
+        document.getElementById("keanu").style.display = "inline";
     }
     else if (wordToMatch === possibleWords[2].toUpperCase()) {
-        document.getElementById("skydive").style.display = "block";
+        document.getElementById("skydive").style.display = "inline";
     }
     else if (wordToMatch === possibleWords[3].toUpperCase()) {
-        document.getElementById("reagan").style.display = "block";
+        document.getElementById("reagan").style.display = "inline";
     }
     else if (wordToMatch === possibleWords[4].toUpperCase()) {
-        document.getElementById("kiedis").style.display = "block";
+        document.getElementById("kiedis").style.display = "inline";
     }
 }
