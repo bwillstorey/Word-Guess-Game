@@ -17,6 +17,12 @@ document.onkeypress = function(event) {
     if (/[a-zA-Z]/.test(inp)) {
         checkForLetter(event.key.toUpperCase())
     }
+
+    if (wins > 4) {
+        alert("DUUUUDDEE! You Totally Won!")
+    }
+    if (numGuess === 0) {
+    }
 }
 
 function checkForLetter(letter) {
@@ -49,10 +55,7 @@ function checkForLetter(letter) {
     }
 
     updateDisplay()
-
 }
-
-
 
 function resetGame() {
     numGuess = maxGuess
@@ -72,7 +75,6 @@ function resetGame() {
             guessingWord.push("_")
         }
     }
-
     updateDisplay()
 }
 
@@ -99,4 +101,12 @@ function displayPicture () {
     else if (wordToMatch === possibleWords[4].toUpperCase()) {
         document.getElementById("kiedis").style.display = "inline";
     }
+}
+
+function removePicture () {
+    document.getElementById("swayze").style.display = "none";
+    document.getElementById("keanu").style.display = "none";
+    document.getElementById("skydive").style.display = "none";
+    document.getElementById("reagan").style.display = "none";
+    document.getElementById("kiedis").style.display = "none";
 }
