@@ -8,7 +8,7 @@ var wordToMatch
 var numGuess
 var wins = 0
 
-resetGame()
+newGame()
 
 document.onkeypress = function(event) {
  
@@ -18,10 +18,9 @@ document.onkeypress = function(event) {
         checkForLetter(event.key.toUpperCase())
     }
 
-    if (wins > 4) {
-        alert("DUUUUDDEE! You Totally Won!")
-    }
-    if (numGuess === 0) {
+    if (wins === 5) {
+        alert("DUUUDE...You totally WON!!!")
+        newGame()
     }
 }
 
@@ -34,6 +33,7 @@ function checkForLetter(letter) {
             foundLetter = true
             if (guessingWord.join("") === wordToMatch) {
                 wins++
+                removePicture()
                 displayPicture()
                 pauseGame = true
                 updateDisplay()
@@ -55,6 +55,11 @@ function checkForLetter(letter) {
     }
 
     updateDisplay()
+}
+
+function newGame() {
+    resetGame()
+    wins = 0
 }
 
 function resetGame() {
