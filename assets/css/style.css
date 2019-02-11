@@ -39,8 +39,8 @@ table {
 }
 
 img {
-    height: 30%;
-    width: 40%;
+    height: 200px;
+    width: 300px;
 }
 
 .right {
@@ -52,3 +52,6 @@ img {
     font-size: 22px;
 }
 
+#keanu, #swayze, #skydive, #kiedis, #reagan {
+    display: none;
+}
