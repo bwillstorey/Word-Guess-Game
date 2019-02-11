@@ -1,12 +1,11 @@
 // Define variables
-var possibleWords = ["brodhi","johnny utah", "skydiving", "reagan mask", "anthony keadis"]
-var maxGuess = 10
-var pauseGame = false
-var guessedLetters = []
+var answers = ["brodhi","johnny utah", "skydiving", "reagan mask", "anthony keadis"]
 var wordBeingGuessed = []
-var hiddenWord
+var winTotal = 0
+var maxGuesses = 10
 var guessesRemaining
-var wins = 0
+var guessedLetters = []
+var hiddenWord
 
 // Initialize a new game
 newGame()
@@ -16,18 +15,16 @@ newGame()
 // begins a new game
 function newGame() {
     resetGame()
-    wins = 0
+    winTotal = 0
     removePicture()
     document.getElementById("poster").style.display = "inline";
 }
 
 // resets game between rounds
 function resetGame() {
-    guessesRemaining = maxGuess
-    pauseGame = false
+    guessesRemaining = maxGuesses
 
-    hiddenWord = possibleWords[Math.floor(Math.random() * possibleWords.length)].toUpperCase()
-    console.log(hiddenWord)
+    hiddenWord = answers[Math.floor(Math.random() * answers.length)].toUpperCase()
 
     guessedLetters = []
     wordBeingGuessed = []
@@ -45,19 +42,19 @@ function resetGame() {
 
 // pictures are displayed upon correct answers
 function displayPicture () {
-    if (hiddenWord === possibleWords[0].toUpperCase()) {
+    if (hiddenWord === answers[0].toUpperCase()) {
         document.getElementById("swayze").style.display = "inline";
     }
-    else if (hiddenWord === possibleWords[1].toUpperCase()) {
+    else if (hiddenWord === answers[1].toUpperCase()) {
         document.getElementById("keanu").style.display = "inline";
     }
-    else if (hiddenWord === possibleWords[2].toUpperCase()) {
+    else if (hiddenWord === answers[2].toUpperCase()) {
         document.getElementById("skydive").style.display = "inline";
     }
-    else if (hiddenWord === possibleWords[3].toUpperCase()) {
+    else if (hiddenWord === answers[3].toUpperCase()) {
         document.getElementById("reagan").style.display = "inline";
     }
-    else if (hiddenWord === possibleWords[4].toUpperCase()) {
+    else if (hiddenWord === answers[4].toUpperCase()) {
         document.getElementById("kiedis").style.display = "inline";
     }
 }
@@ -84,8 +81,8 @@ document.onkeypress = function(event) {
         checkForLetter(event.key.toUpperCase())
     }
 
-    // 5 wins, alert win game, start new game
-    if (wins === 5) {
+    // 5 winTotal, alert win game, start new game
+    if (winTotal === 5) {
         alert("DUUUDE...You totally WON!!!")
         newGame()
     }
@@ -103,12 +100,11 @@ function checkForLetter(letter) {
             wordBeingGuessed[i] = letter
             foundLetter = true
 
-            // if all letters match hidden word, increase wins, reset game
+            // if all letters match hidden word, increase winTotal, reset game
             if (wordBeingGuessed.join("") === hiddenWord) {
-                wins++
+                winTotal++
                 removePicture()
                 displayPicture()
-                pauseGame = true
                 updateDisplay()
                 resetGame()
             }
@@ -124,7 +120,6 @@ function checkForLetter(letter) {
         // if guesses are 0, display the word and reset game
         if (guessesRemaining === 0) {
             wordBeingGuessed = hiddenWord.split()
-            pauseGame = true
             resetGame()
         }
     }
@@ -136,7 +131,7 @@ function checkForLetter(letter) {
 
 // IDs are assigned values with each key press
 function updateDisplay () {
-    document.getElementById("wins").innerText = wins
+    document.getElementById("wins").innerText = winTotal
     document.getElementById("word").innerText = wordBeingGuessed.join("")
     document.getElementById("guesses").innerText = guessesRemaining
     document.getElementById("letters").innerText = guessedLetters.join(" ")
